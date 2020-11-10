@@ -1,0 +1,262 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://animations/ClerkTalkShocked.png" type="Texture" id=1]
+[ext_resource path="res://animations/GamerTalkAngry1.png" type="Texture" id=2]
+[ext_resource path="res://animations/GamerTalkHappy2.png" type="Texture" id=3]
+[ext_resource path="res://animations/GamerTalkHappy1.png" type="Texture" id=4]
+[ext_resource path="res://animations/ClerkTalkHappy1.png" type="Texture" id=5]
+[ext_resource path="res://animations/GamerTalkAngry2.png" type="Texture" id=6]
+[ext_resource path="res://animations/ClerkTalkHappy2.png" type="Texture" id=7]
+[ext_resource path="res://VCR_OSD_MONO_1.001.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://DialogBox.gd" type="Script" id=9]
+[ext_resource path="res://animations/ClerkTalkWink2.png" type="Texture" id=10]
+[ext_resource path="res://animations/ClerkTalkWink1.png" type="Texture" id=11]
+[ext_resource path="res://sounds/wink.wav" type="AudioStream" id=12]
+[ext_resource path="res://sounds/talk.wav" type="AudioStream" id=13]
+[ext_resource path="res://sounds/talk2.wav" type="AudioStream" id=14]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 11 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="DynamicFont" id=6]
+size = 50
+outline_color = Color( 0.294118, 0.113725, 0.321569, 1 )
+font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 30
+outline_color = Color( 1, 0.321569, 0.466667, 1 )
+font_data = ExtResource( 8 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="background" type="ColorRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -640.0
+margin_top = -360.0
+margin_right = 640.0
+margin_bottom = 360.0
+rect_pivot_offset = Vector2( -246, 79 )
+color = Color( 0.639216, 0.654902, 0.760784, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="background2" type="ColorRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -640.0
+margin_top = -360.0
+margin_right = 640.0
+margin_bottom = -230.0
+rect_pivot_offset = Vector2( -246, 79 )
+color = Color( 0.407843, 0.435294, 0.6, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DialogBox" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -20.0
+margin_top = -40.0
+margin_right = 20.0
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="clerkhappy" type="AnimatedSprite" parent="DialogBox"]
+position = Vector2( 332, -281 )
+scale = Vector2( 5, 5 )
+frames = SubResource( 1 )
+frame = 1
+
+[node name="clerkwink" type="AnimatedSprite" parent="DialogBox"]
+visible = false
+position = Vector2( 332, -281 )
+scale = Vector2( 5, 5 )
+frames = SubResource( 2 )
+speed_scale = 0.15
+
+[node name="clerkshocked" type="AnimatedSprite" parent="DialogBox"]
+visible = false
+position = Vector2( 339, -280 )
+scale = Vector2( 5, 5 )
+frames = SubResource( 3 )
+
+[node name="gamerhappy" type="AnimatedSprite" parent="DialogBox"]
+visible = false
+position = Vector2( -300, -280 )
+scale = Vector2( 5, 5 )
+frames = SubResource( 4 )
+frame = 1
+flip_h = true
+
+[node name="gamerangry" type="AnimatedSprite" parent="DialogBox"]
+visible = false
+position = Vector2( -300, -280 )
+scale = Vector2( 5, 5 )
+frames = SubResource( 5 )
+flip_h = true
+
+[node name="ColorRect" type="ColorRect" parent="DialogBox"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -344.0
+margin_top = -192.0
+margin_right = 344.0
+margin_bottom = -8.0
+color = Color( 0.160784, 0.113725, 0.168627, 0.784314 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect2" type="ColorRect" parent="DialogBox"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -344.0
+margin_top = -192.0
+margin_right = 344.0
+margin_bottom = -136.0
+color = Color( 0.160784, 0.113725, 0.168627, 0.784314 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect3" type="ColorRect" parent="DialogBox"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 204.0
+margin_top = -53.0
+margin_right = 341.0
+margin_bottom = -13.0
+color = Color( 0.160784, 0.113725, 0.168627, 0.784314 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="clerkname" type="RichTextLabel" parent="DialogBox"]
+margin_left = -300.0
+margin_top = -152.0
+margin_right = 364.0
+margin_bottom = -96.0
+custom_fonts/normal_font = SubResource( 6 )
+bbcode_enabled = true
+bbcode_text = "[color=#ff5277]Clerk[/color]"
+text = "Clerk"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="gamername" type="RichTextLabel" parent="DialogBox"]
+visible = false
+margin_left = -300.0
+margin_top = -152.0
+margin_right = 364.0
+margin_bottom = -96.0
+custom_fonts/normal_font = SubResource( 6 )
+bbcode_enabled = true
+bbcode_text = "[color=#692464]Gamer[/color]"
+text = "Gamer"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="body" type="RichTextLabel" parent="DialogBox"]
+anchor_top = -0.017
+anchor_bottom = -0.017
+margin_left = -310.0
+margin_top = -96.0
+margin_right = 364.0
+margin_bottom = 32.0
+custom_fonts/normal_font = SubResource( 7 )
+bbcode_enabled = true
+bbcode_text = "
+Hey! Welcome to Game[color=#ff5277]Shop[/color]: [wave amp=50 freq=3]Home of games.[/wave] How can I help you?"
+text = "
+Hey! Welcome to GameShop: Home of games. How can I help you?"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="reminder" type="RichTextLabel" parent="DialogBox"]
+anchor_top = -0.017
+anchor_bottom = -0.017
+margin_left = 245.0
+margin_top = -8.32
+margin_right = 347.0
+margin_bottom = 31.68
+custom_fonts/normal_font = SubResource( 7 )
+bbcode_enabled = true
+bbcode_text = "space"
+text = "space"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="DialogBox"]
+
+[node name="wink" type="AudioStreamPlayer" parent="DialogBox"]
+stream = ExtResource( 12 )
+
+[node name="gamertalk" type="AudioStreamPlayer" parent="DialogBox"]
+stream = ExtResource( 13 )
+
+[node name="clerktalk" type="AudioStreamPlayer" parent="DialogBox"]
+stream = ExtResource( 14 )

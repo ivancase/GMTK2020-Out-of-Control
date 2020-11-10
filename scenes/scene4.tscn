@@ -1,0 +1,194 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://animations/rocket1.png" type="Texture" id=1]
+[ext_resource path="res://new_tileset.tres" type="TileSet" id=2]
+[ext_resource path="res://VCR_OSD_MONO_1.001.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://LevelManager.gd" type="Script" id=4]
+[ext_resource path="res://animations/rocket3.png" type="Texture" id=6]
+[ext_resource path="res://scenes/player.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/destroyable.tscn" type="PackedScene" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+size = 26
+font_data = ExtResource( 3 )
+
+[sub_resource type="PhysicsMaterial" id=2]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="PhysicsMaterial" id=3]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 100, 30 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 99, 30 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 32, 67 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 26, 439 )
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 736, 31 )
+
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="CircleShape2D" id=10]
+radius = 43.0465
+
+[node name="Level" type="Node2D"]
+script = ExtResource( 4 )
+WIN_AMOUNT = -9223372036854775808
+PAR_AMOUNT = -9223372036854775808
+
+[node name="power" type="RichTextLabel" parent="."]
+margin_right = 178.0
+margin_bottom = 158.0
+custom_fonts/normal_font = SubResource( 1 )
+text = "get to your
+rocket ship"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="shots" type="RichTextLabel" parent="."]
+margin_left = 1129.0
+margin_right = 1278.0
+margin_bottom = 158.0
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_text = "shots: 0
+par:   0"
+text = "shots: 0
+par:   0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="floor" type="TileMap" parent="."]
+z_index = -2
+tile_set = ExtResource( 2 )
+format = 1
+tile_data = PoolIntArray( 0, 20, 0, 1, 20, 0, 2, 20, 0, 3, 20, 0, 4, 20, 0, 5, 9, 0, 6, 9, 0, 7, 9, 0, 8, 9, 0, 9, 9, 0, 10, 9, 0, 11, 9, 0, 12, 9, 0, 13, 9, 0, 14, 9, 0, 15, 20, 0, 16, 20, 0, 17, 20, 0, 18, 20, 0, 19, 20, 0, 65536, 20, 0, 65537, 20, 0, 65538, 20, 0, 65539, 9, 0, 65540, 9, 0, 65541, 9, 0, 65542, 9, 0, 65543, 9, 0, 65544, 9, 0, 65545, 9, 0, 65546, 9, 0, 65547, 9, 0, 65548, 9, 0, 65549, 20, 0, 65550, 9, 0, 65551, 9, 0, 65552, 20, 0, 65553, 20, 0, 65554, 20, 0, 65555, 20, 0, 131072, 20, 0, 131073, 20, 0, 131074, 9, 0, 131075, 9, 0, 131076, 9, 0, 131077, 9, 0, 131078, 9, 0, 131079, 20, 0, 131080, 20, 0, 131081, 20, 0, 131082, 9, 0, 131083, 9, 0, 131084, 9, 0, 131085, 9, 0, 131086, 9, 0, 131087, 9, 0, 131088, 9, 0, 131089, 9, 0, 131090, 9, 0, 131091, 9, 0, 196608, 20, 0, 196609, 20, 0, 196610, 9, 0, 196611, 9, 0, 196612, 9, 0, 196613, 9, 0, 196614, 20, 0, 196616, 20, 0, 196617, 20, 0, 196618, 9, 0, 196619, 9, 0, 196620, 9, 0, 196621, 9, 0, 196622, 9, 0, 196623, 9, 0, 196624, 9, 0, 196625, 9, 0, 196626, 9, 0, 196627, 9, 0, 262144, 9, 0, 262145, 9, 0, 262146, 9, 0, 262147, 9, 0, 262148, 9, 0, 262149, 9, 0, 262150, 20, 0, 262151, 20, 0, 262152, 20, 0, 262153, 20, 0, 262154, 9, 0, 262155, 9, 0, 262156, 9, 0, 262157, 9, 0, 262158, 9, 0, 262159, 9, 0, 262160, 9, 0, 262161, 9, 0, 262162, 9, 0, 262163, 9, 0, 327680, 9, 0, 327681, 9, 0, 327682, 9, 0, 327683, 9, 0, 327684, 9, 0, 327685, 20, 0, 327686, 20, 0, 327687, 20, 0, 327688, 20, 0, 327689, 20, 0, 327690, 9, 0, 327691, 9, 0, 327692, 9, 0, 327693, 9, 0, 327694, 9, 0, 327695, 9, 0, 327696, 20, 0, 327697, 20, 0, 327698, 9, 0, 327699, 9, 0, 393216, 9, 0, 393217, 9, 0, 393218, 9, 0, 393219, 9, 0, 393220, 9, 0, 393221, 9, 0, 393222, 9, 0, 393223, 20, 0, 393224, 20, 0, 393225, 9, 0, 393226, 9, 0, 393227, 9, 0, 393228, 9, 0, 393229, 9, 0, 393230, 20, 0, 393231, 20, 0, 393232, 20, 0, 393233, 20, 0, 393234, 9, 0, 393235, 9, 0, 458752, 9, 0, 458753, 9, 0, 458754, 9, 0, 458755, 9, 0, 458756, 9, 0, 458757, 9, 0, 458758, 9, 0, 458759, 9, 0, 458760, 9, 0, 458761, 9, 0, 458762, 9, 0, 458763, 9, 0, 458764, 9, 0, 458765, 20, 0, 458766, 20, 0, 458767, 20, 0, 458768, 20, 0, 458769, 9, 0, 458770, 9, 0, 458771, 9, 0, 524288, 9, 0, 524289, 9, 0, 524290, 9, 0, 524291, 9, 0, 524292, 9, 0, 524293, 9, 0, 524294, 9, 0, 524295, 9, 0, 524296, 9, 0, 524297, 9, 0, 524298, 9, 0, 524299, 9, 0, 524300, 20, 0, 524301, 20, 0, 524302, 20, 0, 524303, 20, 0, 524304, 20, 0, 524305, 20, 0, 524306, 20, 0, 524307, 9, 0, 589824, 9, 0, 589825, 9, 0, 589826, 9, 0, 589827, 9, 0, 589828, 9, 0, 589829, 20, 0, 589830, 20, 0, 589831, 20, 0, 589832, 9, 0, 589833, 9, 0, 589834, 9, 0, 589835, 9, 0, 589836, 20, 0, 589837, 20, 0, 589838, 9, 0, 589839, 9, 0, 589840, 9, 0, 589841, 20, 0, 589842, 20, 0, 589843, 20, 0, 655360, 9, 0, 655361, 9, 0, 655362, 9, 0, 655363, 9, 0, 655364, 9, 0, 655365, 20, 0, 655366, 20, 0, 655367, 20, 0, 655368, 20, 0, 655369, 20, 0, 655370, 9, 0, 655371, 9, 0, 655372, 20, 0, 655373, 20, 0, 655374, 9, 0, 655375, 9, 0, 655376, 9, 0, 655377, 9, 0, 655378, 9, 0, 655379, 20, 0, 720896, 9, 0, 720897, 9, 0, 720898, 9, 0, 720899, 9, 0, 720900, 9, 0, 720901, 9, 0, 720902, 9, 0, 720903, 9, 0, 720904, 9, 0, 720905, 9, 0, 720906, 9, 0, 720907, 9, 0, 720908, 9, 0, 720909, 9, 0, 720910, 9, 0, 720911, 9, 0, 720912, 9, 0, 720913, 9, 0, 720914, 9, 0, 720915, 9, 0 )
+
+[node name="mid" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+format = 1
+tile_data = PoolIntArray( 5, 9, 0, 14, 9, 0, 65542, 9, 0, 65543, 9, 0, 65549, 9, 0, 65550, 9, 0, 131083, 12, 0, 131084, 21, 0, 131085, 21, 0, 131086, 21, 0, 131087, 14, 0, 196615, 20, 0, 262144, 12, 0, 262145, 21, 0, 262146, 21, 0, 262147, 21, 0, 262148, 14, 0, 262152, 9, 0, 327692, 9, 0, 393227, 26, 0, 393231, 26, 0, 458763, 22, 0, 458767, 23, 0, 524299, 22, 0, 524303, 27, 0, 589835, 27, 0 )
+
+[node name="top" type="TileMap" parent="."]
+z_index = 1
+tile_set = ExtResource( 2 )
+format = 1
+
+[node name="player" parent="." instance=ExtResource( 7 )]
+position = Vector2( 150, 478 )
+rotation = 1.5708
+physics_material_override = SubResource( 2 )
+continuous_cd = 2
+can_sleep = false
+MAX_POWER = 1500
+STICK_COMPRESSION = 5
+
+[node name="walls" type="StaticBody2D" parent="."]
+physics_material_override = SubResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="walls"]
+position = Vector2( 159, 289 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="walls"]
+position = Vector2( 865, 161 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="walls"]
+position = Vector2( 736, 513 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="walls"]
+position = Vector2( -27, 382 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="walls"]
+position = Vector2( 1306, 409 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="walls"]
+position = Vector2( 653, -29 )
+shape = SubResource( 9 )
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="walls"]
+position = Vector2( 674, 800 )
+shape = SubResource( 9 )
+
+[node name="destroyables" type="Node2D" parent="."]
+position = Vector2( 337, -348 )
+
+[node name="destroyable" parent="destroyables" instance=ExtResource( 8 )]
+position = Vector2( 207, 637 )
+
+[node name="destroyable2" parent="destroyables" instance=ExtResource( 8 )]
+position = Vector2( -48, 509 )
+rotation = -0.785397
+
+[node name="destroyable3" parent="destroyables" instance=ExtResource( 8 )]
+position = Vector2( 433, 655 )
+rotation = -0.785397
+
+[node name="destroyable4" parent="destroyables" instance=ExtResource( 8 )]
+position = Vector2( 863, 532 )
+rotation = -0.785397
+
+[node name="destroyable5" parent="destroyables" instance=ExtResource( 8 )]
+position = Vector2( 663, 1013 )
+rotation = -0.785397
+
+[node name="destroyable6" parent="destroyables" instance=ExtResource( 8 )]
+position = Vector2( -178, 986 )
+rotation = -0.785397
+scale = Vector2( 3, 3 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." groups=[
+"Kill",
+]]
+position = Vector2( 588, -47 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PoolVector2Array( -233, 383, -233, 413, -115, 413, -115, 481, -32, 479, -31, 410, 38, 412, 33, 195, -101, 194, -105, 256, -170, 254, -170, 377 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PoolVector2Array( -263, 627, -85, 627, -83, 702, 44, 701, 43, 739, -249, 730 )
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PoolVector2Array( -274, 99, -410, 100, -410, 162, -477, 158, -477, 283, -585, 281, -588, 45, -271, 48 )
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PoolVector2Array( 447, 377, 557, 377, 555, 478, 475, 479, 478, 572, 602, 573, 604, 643, 679, 646, 679, 733, 649, 727, 642, 676, 531, 669, 514, 597, 270, 602, 283, 730, 207, 732, 208, 579, 280, 570, 284, 508, 349, 510, 340, 462, 466, 445 )
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PoolVector2Array( 379, 52, 682, 51, 688, 161, 451, 162, 444, 98, 396, 95 )
+
+[node name="rocket" type="StaticBody2D" parent="." groups=[
+"Rocket",
+]]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="rocket"]
+position = Vector2( 1215, 368 )
+scale = Vector2( 3, 3 )
+frames = SubResource( 7 )
+frame = 1
+speed_scale = 0.5
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rocket"]
+position = Vector2( 1215, 454 )
+shape = SubResource( 10 )

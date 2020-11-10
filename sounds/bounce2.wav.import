@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/bounce2.wav-d116350d653a1c0f54de97c6712b8711.sample"
+
+[deps]
+
+source_file="res://sounds/bounce2.wav"
+dest_files=[ "res://.import/bounce2.wav-d116350d653a1c0f54de97c6712b8711.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://destroyable.gd" type="Script" id=1]
+[ext_resource path="res://display.png" type="Texture" id=2]
+[ext_resource path="res://display_dead.png" type="Texture" id=3]
+
+[sub_resource type="PhysicsMaterial" id=1]
+friction = 0.0
+bounce = 1.0
+
+[node name="destroyable" type="StaticBody2D"]
+physics_material_override = SubResource( 1 )
+script = ExtResource( 1 )
+dead_sprite = ExtResource( 3 )
+
+[node name="sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="collider" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( 0, -32, -32, 0, 0, 32, 32, 0 )
